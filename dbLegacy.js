@@ -1,11 +1,12 @@
 import mysql from "mysql"
 
 export const db = mysql.createPool({
-    host: 'sql10.freesqldatabase.com',
-    user: 'sql10630077',
-    password: 'PLxe5fCgQd',
-    database: 'sql10630077',
+  host: process.env.host ||'sql10.freesqldatabase.com',
+  user: process.env.user||'sql10630077',
+  password: process.env.password||'PLxe5fCgQd',
+  database: process.env.database||'sql10630077',
   });
+  
   
   // // Test the database connection
   db.getConnection((err, connection) => {
@@ -16,3 +17,4 @@ export const db = mysql.createPool({
       connection.release();
     }
   });
+
